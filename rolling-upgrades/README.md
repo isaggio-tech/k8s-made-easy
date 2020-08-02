@@ -18,5 +18,5 @@ kubectl rollout undo deployment echo-server-deploy --to-revision=1
 
 
 ### Test URL:
-vist:  <master-url>:30096/hello-world
+vist:  master-url:30096/hello-world
 
