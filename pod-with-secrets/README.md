@@ -1,6 +1,9 @@
-## Liveness & Readiness Probes
+## Deploy Pods with Secrets
 ### Verify Yamls:
 kubeval *yaml 
+
+### Dependency
+Pods in this module depends on deploy-secrets module, located in the root directory
 
 ### About
 Both yamls are independent and creates each pod, opod-secret-ref exports secrets as ENV as Key references
