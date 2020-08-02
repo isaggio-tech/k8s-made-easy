@@ -1,0 +1,17 @@
+apiVersion: batch/v1
+kind: Job
+metadata:
+   name: job-example
+spec:
+   template:
+      spec:
+         containers:
+            - name: python-job
+              image: python
+              env:
+                 - name: PYTHONUNBUFFERED
+                   value: "1"
+              command: ["python", "-u"]
+              args: ["-c", "import math", "print 4 * math.atan(1)"]
+         restartPolicy: Never
+   backoffLimit: 4

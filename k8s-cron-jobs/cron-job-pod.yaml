@@ -1,0 +1,16 @@
+apiVersion: batch/v1beta1
+kind: CronJob
+metadata:
+   name: cron-job-example
+spec:
+   schedule: "*/1 * * * *"
+   jobTemplate:
+      spec:
+         template:
+            spec:
+               containers:
+                  - name: busybox-echo
+                    image: busybox
+                    command: ["/bin/sh"]
+                    args: ["-c", "date; echo Running the Pod now"]
+               restartPolicy: OnFailure     
