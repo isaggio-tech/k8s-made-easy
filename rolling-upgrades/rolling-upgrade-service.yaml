@@ -1,0 +1,19 @@
+apiVersion: v1
+kind: Service
+metadata:
+   name: echo-server-service
+   labels:
+      app: echo-server
+      env: dev 
+spec:
+   selector:
+      app: echo-server
+   type: NodePort
+   ports:
+      - protocol: TCP
+        port: 9001
+        targetPort: 80
+        nodePort: 30096
+      
+
+   

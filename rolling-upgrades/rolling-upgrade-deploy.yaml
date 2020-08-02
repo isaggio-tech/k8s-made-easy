@@ -1,0 +1,29 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: echo-server-deploy
+   labels:
+      app: echo-server
+      env: dev  
+spec:
+   strategy:
+     rollingUpdate:
+       maxSurge: 2
+       maxUnavailable: 2
+   replicas: 3
+   selector:
+      matchLabels:
+         app: echo-server
+   template:
+      metadata:
+         name: echo-server   
+         labels:
+            app: echo-server     
+      spec:
+         containers:
+            - name: echo-server
+              image: ealen/echo-server:0.4.1
+              imagePullPolicy: IfNotPresent
+              ports:
+                 - name: http
+                   containerPort: 80    

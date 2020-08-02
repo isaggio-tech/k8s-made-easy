@@ -1,0 +1,23 @@
+apiVersion: apps/v1
+kind: Deployment
+metadata:
+   name: hello-world
+   labels:
+      app: hello-world
+spec:
+   selector:
+      matchLabels:
+         app: hello-world
+   replicas: 2
+   template:
+      metadata:
+         labels:
+            app: hello-world
+      spec:
+         containers:
+         - name: echo-server
+           image: nginx:1.7.9
+           imagePullPolicy: Always
+           ports:
+           - name: http
+             containerPort: 80
