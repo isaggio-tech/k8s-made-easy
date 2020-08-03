@@ -1,0 +1,16 @@
+apiVersion: v1
+kind: Pod
+metadata: 
+   name: busybox-pvc
+spec:
+   containers:
+      - name: busybox-pvc-container
+        image: busybox
+        command: ["/bin/sh", "-c", "while true; do sleep 300; done"]
+        volumeMounts:
+           - name: local-pvc-claim
+             mountPath: /mnt/test-local
+   volumes:
+      - name: local-pvc-claim
+        persistentVolumeClaim:
+           claimName: local-pvc   
