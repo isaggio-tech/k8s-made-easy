@@ -1,0 +1,12 @@
+apiVersion: v1
+kind: PersistentVolume
+metadata: 
+  name: log-data-pv
+spec:
+  storageClassName: local-data-storage
+  accessModes: 
+    - ReadWriteMany
+  capacity: 
+      storage: 1Gi
+  hostPath:
+      path: "/mnt/k8s_log_output"  

@@ -1,0 +1,11 @@
+apiVersion: v1
+kind: PersistentVolumeClaim
+metadata: 
+  name: log-data-pvc
+spec:
+  storageClassName: local-data-storage
+  accessModes:
+    - ReadWriteMany
+  resources:
+    requests:
+        storage: 1Gi   
